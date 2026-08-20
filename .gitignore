@@ -12,6 +12,10 @@
 
 # testing
 /coverage
+e2e/qa-generated/*.spec.ts
+.env.test
+/playwright-report/
+/test-results/
 
 # next.js
 /.next/
@@ -39,3 +43,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+certificates
+e2e/qa-generated/*.spec.ts
+/.claude/
+/docs/
+/e2e/
+/tasks/
+CLAUDE.md
+/test-results/
+/graphify-out
+/.opencode
+
