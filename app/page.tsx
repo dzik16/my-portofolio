@@ -11,53 +11,124 @@ const ParticleCanvas = dynamic(() => import('@/components/ParticleCanvas'), { ss
 
 /* ──────────────────── DATA ──────────────────── */
 
-const skills = [
-  { label: 'React Native', accent: true },
-  { label: 'ReactJS', accent: true },
-  { label: 'Kotlin', accent: true },
-  { label: 'TypeScript', accent: false },
-  { label: 'JavaScript', accent: false },
-  { label: 'Next.js', accent: false },
-  { label: 'Redux / Zustand', accent: false },
-  { label: 'Axios', accent: false },
-  { label: 'Realm DB', accent: false },
-  { label: 'MMKV Storage', accent: false },
-  { label: 'Socket.IO', accent: false },
-  { label: 'Firebase', accent: false },
-  { label: 'Tailwind CSS', accent: false },
-  { label: 'Blazor / .NET', accent: false },
-  { label: 'Android MVVM', accent: false },
-  { label: 'OCR Integration', accent: false },
-  { label: 'Git', accent: false },
-  { label: 'Agile / Scrum', accent: false },
-  { label: 'Maestro Testing', accent: false },
-  { label: 'Python', accent: false },
+const skillGroups = [
+  {
+    name: 'Mobile',
+    skills: [
+      { label: 'React Native', accent: true },
+      { label: 'Kotlin', accent: true },
+      { label: 'Android MVVM', accent: false },
+      { label: 'Realm', accent: false },
+      { label: 'MMKV', accent: false },
+      { label: 'Room Database', accent: false },
+      { label: 'Firebase', accent: false },
+      { label: 'GPS Services', accent: false },
+    ],
+  },
+  {
+    name: 'Frontend',
+    skills: [
+      { label: 'React', accent: true },
+      { label: 'Next.js', accent: true },
+      { label: 'TypeScript', accent: true },
+      { label: 'Tailwind CSS', accent: false },
+      { label: 'Redux Toolkit', accent: false },
+      { label: 'Zustand', accent: false },
+      { label: 'Axios', accent: false },
+    ],
+  },
+  {
+    name: 'Backend',
+    skills: [
+      { label: 'Go (Echo)', accent: true },
+      { label: 'PHP', accent: false },
+      { label: 'REST API', accent: false },
+      { label: 'MongoDB', accent: false },
+      { label: 'PostgreSQL', accent: false },
+      { label: 'Redis', accent: false },
+      { label: 'JWT Auth', accent: false },
+    ],
+  },
+  {
+    name: 'Real-time',
+    skills: [
+      { label: 'WebSocket', accent: false },
+      { label: 'Socket.IO', accent: false },
+      { label: 'SSE', accent: false },
+    ],
+  },
+  {
+    name: 'DevOps',
+    skills: [
+      { label: 'Docker', accent: false },
+      { label: 'Docker Compose', accent: false },
+      { label: 'PM2', accent: false },
+      { label: 'GitLab Runner', accent: false },
+      { label: 'Jenkins', accent: false },
+      { label: 'Application Monitoring', accent: false },
+    ],
+  },
+  {
+    name: 'Testing',
+    skills: [
+      { label: 'Vitest', accent: false },
+      { label: 'Playwright (E2E)', accent: false },
+      { label: 'Maestro', accent: false },
+      { label: 'Manual Testing', accent: false },
+    ],
+  },
+  {
+    name: 'Additional',
+    skills: [
+      { label: 'Python', accent: false },
+      { label: 'SAS', accent: false },
+      { label: '.NET', accent: false },
+      { label: 'Blazor', accent: false },
+      { label: 'RAGFlow', accent: false },
+      { label: 'Ollama', accent: false },
+      { label: 'OCR', accent: false },
+      { label: 'Document Parsing', accent: false },
+      { label: 'Git', accent: false },
+      { label: 'Agile / Scrum', accent: false },
+    ],
+  },
 ]
 
 const experiences = [
   {
-    role: 'React Native Developer',
+    role: 'Senior Mobile & Full-stack Engineer',
     period: 'Feb 2024 – Present',
     company: 'Profescipta Wahana Teknik · Jakarta Timur, Remote',
-    desc: 'Maintained and enhanced Merabu (tobacco grading & shipping app) with React Native, Redux, MMKV, Realm, and offline OCR KTP scanner. Developed Localo attendance app with GPS check-in/out using Zustand and atomic design. Supported .NET & Blazor frontend improvements.',
+    desc: [
+      'Owned end-to-end development and maintenance of Merabu, a tobacco grading & shipping app built with React Native, Redux, MMKV, Realm, and Axios — including an offline OCR KTP scanner for ID verification without internet connectivity.',
+      'Owned development of Localo, a GPS-based mobile attendance app using React Native and Zustand, following atomic design principles.',
+      'Contributed UI styling and frontend improvements for .NET and Blazor web projects.',
+      'Implemented OCR document scanning and a document parsing pipeline using RAGFlow and Ollama (local LLM) for automated data extraction.',
+      'Converted and migrated legacy SAS statistical code to Python, improving maintainability and integration with modern data workflows.',
+      'Designed and built an end-to-end Hotel Service Platform (Front Office + Guest Room Service) with Next.js, TypeScript, Tailwind CSS, Golang, and MongoDB — QR-based guest ordering, facility booking, complaints, reviews, JWT auth, RBAC, and local Wi-Fi verification.',
+      'Owned the full production lifecycle — 20 backend modules, 190 REST API endpoints, 93% average test coverage across 130+ automated tests, running 4 production services with Docker Compose and PM2.',
+    ],
   },
   {
     role: 'Frontend Mobile & Web Developer',
     period: 'Oct 2022 – Feb 2024',
     company: 'Beamco · Singapore, Remote',
-    desc: 'Led BEAMCO admin dashboard development with ReactJS (music management, credits, live tipping). Built React Native mobile app for fan engagement: music player, merch, events. Implemented real-time WebSocket animations for live tipping stage.',
+    desc: [
+      'Led development of BEAMCO\'s admin dashboard using ReactJS — music management, user management, content moderation, and live tipping events for a platform serving around 2,000 musicians.',
+      'Built fan engagement features in the React Native mobile app: music player, merchandise purchasing, event ticketing, and live tipping events.',
+      'Built the live stage screen and controller page using WebSocket for real-time animations and interactivity.',
+      'Optimized performance across web and mobile via code splitting, lazy loading, and API response caching.',
+    ],
   },
   {
     role: 'Mobile Developer',
-    period: 'Feb 2022 – Feb 2023',
-    company: 'PT Telkom Indonesia · Bandung, Hybrid',
-    desc: 'Maintained TravelAja Mitra (React Native) and led migration of TravelAja Personal from React Native to Kotlin with Android MVVM architecture. Implemented clean code separation with multi-Fragment navigation in Scrum environment.',
-  },
-  {
-    role: 'React Native Developer – Kkuljaem',
-    period: 'Project',
-    company: 'Kkuljaem Korean · Tangerang, Remote',
-    desc: 'Led development of Korean language learning app with course management, real-time chat (Socket.IO), Firebase auth/notifications, and payment gateway integration. Optimized for both Android & iOS.',
+    period: 'Oct 2021 – Oct 2022',
+    company: 'PT Telkom Indonesia (Persero) Tbk · Bandung, Hybrid',
+    desc: [
+      'Led the migration of TravelAja Personal from React Native to native Android (Kotlin) with MVVM architecture.',
+      'Maintained TravelAja Mitra for partner users using React Native, Redux, and Axios.',
+      'Combined multiple Fragments within a single Activity for seamless navigation within a Scrum environment.',
+    ],
   },
 ]
 
@@ -65,14 +136,14 @@ const projects = [
   {
     icon: '🌿',
     name: 'Merabu',
-    desc: 'Tobacco grading & shipping app with offline-first architecture, OCR KTP scanning, and Realm database.',
+    desc: 'Tobacco grading & shipping app with offline-first architecture, offline OCR KTP scanning, and Realm database.',
     tags: ['React Native', 'Redux', 'MMKV', 'Realm'],
   },
   {
-    icon: '🎵',
-    name: 'BEAMCO',
-    desc: 'Music fan engagement platform with live tipping events, real-time animations, WebSocket, and artist interactions.',
-    tags: ['ReactJS', 'React Native', 'WebSocket'],
+    icon: '🏨',
+    name: 'Hotel Service Platform',
+    desc: 'End-to-end hotel platform — Front Office & Guest Room Service — with QR guest ordering, facility booking, complaints, reviews, JWT auth, RBAC, and local Wi-Fi verification.',
+    tags: ['Next.js', 'Golang', 'MongoDB'],
   },
   {
     icon: '📍',
@@ -81,22 +152,34 @@ const projects = [
     tags: ['React Native', 'Zustand', 'GPS'],
   },
   {
-    icon: '🍜',
-    name: 'Osraah',
-    desc: 'Multi-role food ordering ecosystem for restaurants, drivers, and consumers with live order tracking.',
-    tags: ['React Native', 'Socket.IO', 'GPS'],
+    icon: '🇰🇷',
+    name: 'Kkuljaem Korean',
+    desc: 'Korean language learning app with course management, real-time chat (Socket.IO), Firebase auth/push, and payment gateway integration.',
+    tags: ['React Native', 'Redux Toolkit', 'Socket.IO'],
   },
   {
     icon: '💬',
     name: 'Tryst Date',
-    desc: 'Dating app with real-time chat, user matching, push notifications, and premium subscription management.',
-    tags: ['React Native', 'Zustand', 'Socket.IO'],
+    desc: 'Dating platform with real-time chat, user matching, premium subscriptions, and payment gateway integration.',
+    tags: ['React Native', 'Socket.IO'],
   },
   {
-    icon: '📝',
-    name: 'TOEFL Connected',
-    desc: 'Web-based TOEFL testing platform with admin dashboard, test management, and result monitoring.',
-    tags: ['ReactJS', 'TypeScript', 'Tailwind'],
+    icon: '🍜',
+    name: 'Osraah',
+    desc: 'Multi-role food ordering ecosystem for restaurants, drivers, and consumers with live order tracking, GPS, and WebSocket.',
+    tags: ['React Native', 'Redux', 'WebSocket'],
+  },
+  {
+    icon: '🧾',
+    name: 'Humaira POS',
+    desc: 'Point of Sale mobile app built with Kotlin featuring API integration, Room Database, and receipt printer hardware support.',
+    tags: ['Kotlin', 'Room Database'],
+  },
+  {
+    icon: '🎵',
+    name: 'BEAMCO',
+    desc: 'Music fan engagement platform with live tipping events, real-time stage animations, and artist interactions.',
+    tags: ['ReactJS', 'React Native', 'WebSocket'],
   },
 ]
 
@@ -182,7 +265,9 @@ export default function Home() {
             transition={{ delay: 0.45, duration: 0.6 }}
             className="text-[#9090b0] max-w-xl leading-relaxed mb-10 mt-4"
           >
-            Mobile & Web Developer crafting seamless digital experiences. Specialized in React Native, ReactJS & Android (Kotlin) — building apps that scale.
+            Senior Mobile & Full-stack Engineer with 5+ years owning end-to-end development — from system
+            design and API integration to deployment and production monitoring across React Native, Kotlin,
+            React/Next.js, and Go.
           </motion.p>
 
           <motion.div
@@ -192,7 +277,7 @@ export default function Home() {
             className="flex gap-4 flex-wrap"
           >
             <a
-              href="mailto:dikrialfaris19@gmail.com"
+              href="mailto:dikrialfarisi9@gmail.com"
               className="px-7 py-3 rounded-lg font-semibold text-sm text-white relative overflow-hidden group"
               style={{
                 background: 'linear-gradient(135deg, #7b5cff, #5b3dd4)',
@@ -216,9 +301,9 @@ export default function Home() {
         <AnimatedSection>
           <div className="grid grid-cols-3 gap-4 mb-20">
             {[
-              { num: 4, suffix: '+', label: 'Years Experience' },
-              { num: 10, suffix: '+', label: 'Projects Shipped' },
-              { num: 6, suffix: '+', label: 'Companies & Clients' },
+              { num: 5, suffix: '+', label: 'Years Experience' },
+              { num: 190, suffix: '+', label: 'REST Endpoints Shipped' },
+              { num: 93, suffix: '%', label: 'Average Test Coverage' },
             ].map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -244,30 +329,41 @@ export default function Home() {
         {/* ── SKILLS ── */}
         <section id="skills" className="mb-20">
           <AnimatedSection>
-            <p className="text-xs text-[#00d9b8] tracking-[0.18em] uppercase font-semibold mb-3">// Tech Stack</p>
+            <p className="text-xs text-[#00d9b8] tracking-[0.18em] uppercase font-semibold mb-3">{'// Tech Stack'}</p>
             <h2 className="font-syne font-black text-3xl mb-8">Technical Skills</h2>
           </AnimatedSection>
-          <div className="flex flex-wrap gap-3">
-            {skills.map((skill, i) => (
-              <motion.div
-                key={skill.label}
-                initial={{ opacity: 0, scale: 0.85, y: 15 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.04, duration: 0.4 }}
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: skill.accent ? '0 0 20px rgba(123,92,255,0.4)' : '0 0 15px rgba(123,92,255,0.2)',
-                  y: -2,
-                }}
-                className={`px-4 py-2 rounded-lg text-sm cursor-default border transition-all duration-200 ${
-                  skill.accent
-                    ? 'border-[#7b5cff]/60 text-[#7b5cff] bg-[#7b5cff]/10'
-                    : 'border-purple-900/30 text-[#f0eeff] bg-[#12121a] hover:border-[#7b5cff]/40 hover:text-[#7b5cff]'
-                }`}
-              >
-                {skill.label}
-              </motion.div>
+          <div className="flex flex-col gap-8">
+            {skillGroups.map((group) => (
+              <AnimatedSection key={group.name}>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
+                  <span className="text-xs text-[#7b5cff] tracking-[0.18em] uppercase font-semibold w-24 flex-shrink-0">
+                    {group.name}
+                  </span>
+                  <div className="flex flex-wrap gap-3">
+                    {group.skills.map((skill, i) => (
+                      <motion.div
+                        key={skill.label}
+                        initial={{ opacity: 0, scale: 0.85, y: 15 }}
+                        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.04, duration: 0.4 }}
+                        whileHover={{
+                          scale: 1.05,
+                          boxShadow: skill.accent ? '0 0 20px rgba(123,92,255,0.4)' : '0 0 15px rgba(123,92,255,0.2)',
+                          y: -2,
+                        }}
+                        className={`px-4 py-2 rounded-lg text-sm cursor-default border transition-all duration-200 ${
+                          skill.accent
+                            ? 'border-[#7b5cff]/60 text-[#7b5cff] bg-[#7b5cff]/10'
+                            : 'border-purple-900/30 text-[#f0eeff] bg-[#12121a] hover:border-[#7b5cff]/40 hover:text-[#7b5cff]'
+                        }`}
+                      >
+                        {skill.label}
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </AnimatedSection>
             ))}
           </div>
         </section>
@@ -275,7 +371,7 @@ export default function Home() {
         {/* ── EXPERIENCE ── */}
         <section id="experience" className="mb-20">
           <AnimatedSection>
-            <p className="text-xs text-[#00d9b8] tracking-[0.18em] uppercase font-semibold mb-3">// Work History</p>
+            <p className="text-xs text-[#00d9b8] tracking-[0.18em] uppercase font-semibold mb-3">{'// Work History'}</p>
             <h2 className="font-syne font-black text-3xl mb-8">Experience</h2>
           </AnimatedSection>
 
@@ -321,7 +417,14 @@ export default function Home() {
                         </span>
                       </div>
                       <p className="text-xs text-[#7b5cff] mb-3">{exp.company}</p>
-                      <p className="text-sm text-[#9090b0] leading-relaxed">{exp.desc}</p>
+                      <ul className="text-sm text-[#9090b0] leading-relaxed space-y-2">
+                        {exp.desc.map((item) => (
+                          <li key={item} className="flex gap-2">
+                            <span className="text-[#00d9b8] flex-shrink-0 mt-0.5">▸</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </motion.div>
                   </div>
                 </AnimatedSection>
@@ -333,7 +436,7 @@ export default function Home() {
         {/* ── PROJECTS ── */}
         <section id="projects" className="mb-20">
           <AnimatedSection>
-            <p className="text-xs text-[#00d9b8] tracking-[0.18em] uppercase font-semibold mb-3">// Featured Work</p>
+            <p className="text-xs text-[#00d9b8] tracking-[0.18em] uppercase font-semibold mb-3">{'// Featured Work'}</p>
             <h2 className="font-syne font-black text-3xl mb-8">Projects</h2>
           </AnimatedSection>
 
@@ -390,7 +493,7 @@ export default function Home() {
         {/* ── CONTACT ── */}
         <section id="contact" className="mb-20">
           <AnimatedSection>
-            <p className="text-xs text-[#00d9b8] tracking-[0.18em] uppercase font-semibold mb-3">// Get in Touch</p>
+            <p className="text-xs text-[#00d9b8] tracking-[0.18em] uppercase font-semibold mb-3">{'// Get in Touch'}</p>
             <h2 className="font-syne font-black text-3xl mb-8">Let&apos;s Connect</h2>
           </AnimatedSection>
 
@@ -411,10 +514,12 @@ export default function Home() {
 
               <div className="relative flex flex-col gap-4">
                 {[
-                  { color: '#7b5cff', label: 'dikrialfaris19@gmail.com', href: 'mailto:dikrialfaris19@gmail.com' },
+                  { color: '#7b5cff', label: 'dikrialfarisi9@gmail.com', href: 'mailto:dikrialfarisi9@gmail.com' },
                   { color: '#00d9b8', label: '+62 812 3106 1028', href: 'tel:+6281231061028' },
+                  { color: '#7b5cff', label: 'linkedin.com/in/dzik16', href: 'https://linkedin.com/in/dzik16' },
+                  { color: '#00d9b8', label: 'dzik.my.id', href: 'https://dzik.my.id' },
                   { color: '#888', label: 'Bandung, Jawa Barat, Indonesia', href: null },
-                  { color: '#888', label: 'S1 Universitas Pendidikan Indonesia (2019–2023)', href: null },
+                  { color: '#888', label: 'S1 Universitas Pendidikan Indonesia (2019–2023) · GPA 3.84', href: null },
                 ].map((item, i) => (
                   <motion.div
                     key={i}
@@ -435,7 +540,7 @@ export default function Home() {
               </div>
 
               <motion.a
-                href="mailto:dikrialfaris19@gmail.com"
+                href="mailto:dikrialfarisi9@gmail.com"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
                 className="relative px-8 py-4 rounded-xl font-bold text-sm text-white overflow-hidden group flex-shrink-0"

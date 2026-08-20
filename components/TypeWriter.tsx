@@ -3,11 +3,11 @@
 import { useEffect, useState } from 'react'
 
 const roles = [
+  'Senior Mobile & Full-stack Engineer',
   'React Native Developer',
-  'Mobile App Engineer',
-  'ReactJS Developer',
-  'Android (Kotlin) Dev',
-  'Frontend Architect',
+  'Android (Kotlin) Developer',
+  'React / Next.js Engineer',
+  'Go Backend Developer',
 ]
 
 export default function TypeWriter() {
@@ -22,6 +22,8 @@ export default function TypeWriter() {
     if (!deleting && text === current) {
       timeout = setTimeout(() => setDeleting(true), 1800)
     } else if (deleting && text === '') {
+      // The state transition advances the typewriter cycle after deletion completes.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setDeleting(false)
       setRoleIdx((prev) => (prev + 1) % roles.length)
     } else if (deleting) {
